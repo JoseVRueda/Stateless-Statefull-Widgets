@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
 class W1 extends StatelessWidget {
-  const W1({super.key});
+  const W1({super.key, required this.number, required this.sumar01, required this.restar01});
+  final Function() sumar01;
+  final Function() restar01;
+  final double number;
   //color: Theme.of(context).primaryColor,
   // color: Theme.of(context).colorScheme.inversePrimary,
   // container margin: const EdgeInsets.all(10),
@@ -18,8 +21,7 @@ class W1 extends StatelessWidget {
             padding: const EdgeInsets.all(10),
             color: Theme.of(context).colorScheme.inversePrimary,
             child: Text(
-              '0',
-              key: const Key('W1Value'),
+              '$number',
             ),
           ),
           Container(
@@ -28,11 +30,11 @@ class W1 extends StatelessWidget {
             child: Column(
               children: [
                 IconButton(
-                    onPressed: () {},
+                    onPressed: () => sumar01(),
                     icon: const Icon(Icons.add),
                     key: const Key('W1Add')),
                 IconButton(
-                    onPressed: () {},
+                    onPressed: () => restar01(),
                     icon: const Icon(Icons.remove),
                     key: const Key('W1Sub'))
               ],
